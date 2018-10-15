@@ -1,0 +1,62 @@
+{
+  "name": "logistics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm i rimraf cpx -g",
+    "start": "node node_modules/react-native/local-cli/cli.js start --skipflow",
+    "iosDevice": "react-native run-ios --device 'Max 的 iPhone'",
+    "iosDeviceRelease": "react-native run-ios --device 'Max iPhone' --configuration Release",
+    "postbuild": "cpx \"src/images/**/*\" \"build/app/src/images\"",
+    "prebuild": "rimraf build",
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "jest",
+    "android": "npm run build && react-native run-android",
+    "ios": "npm run build && react-native run-ios"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^6.2.1",
+    "@types/parse": "^2.4.2",
+    "@types/uuid": "^3.4.3",
+    "class-autobind": "^0.1.4",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "native-base": "^2.3.4",
+    "parse": "^1.10.0",
+    "react": "16.0.0",
+    "react-native": "0.51.0",
+    "react-native-camera": "^0.12.0",
+    "react-native-qrcode-scanner": "0.0.28",
+    "react-native-router-flux": "^4.0.0-beta.24",
+    "react-native-storage": "^0.2.2",
+    "react-navigation": "^1.0.0-beta.21",
+    "rxjs": "^5.5.5",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.8",
+    "@types/lodash": "^4.14.88",
+    "@types/react": "^16.0.28",
+    "@types/react-native": "^0.51.0",
+    "@types/react-redux": "^5.0.14",
+    "babel-jest": "21.2.0",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "21.2.1",
+    "react-test-renderer": "16.0.0",
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}
